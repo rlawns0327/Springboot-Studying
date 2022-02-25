@@ -1,0 +1,23 @@
+#h2 DB, 웹 콘솔 접근 허용 / h2-console
+spring.h2.console.enabled=true
+
+#boot 버전이 2.4에서 2.5로 업데이트 되면서 하이버네이트 초기화 과정보다 data.sql 먼저 실행되도록 변경되어 오류가 떠서
+#data.sqp을 쓰려면 선언해야함
+spring.jpa.defer-datasource-initialization: true
+
+#JPA 로깅 설정
+#디버그 레벨로 쿼리 출력
+logging.level.org.hibernate.SQL=DEBUG
+
+# 이쁘게 보여주기
+spring.jpa.properties.hibernate.format_sql=true
+
+# 파라미터 보여주기
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+
+# DB URL 고정 설정
+# 유니크 URL 생성 X
+spring.datasource.generate-unique-name=false
+# 고정 URL 설정
+spring.datasource.url=jdbc:h2:mem:testdb
+
